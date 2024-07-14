@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Validation</title>
+</head>
+<body>
+
+    <h3>Date of birth birthvalidation</h3>
+
+    <label for="birth">Date of Birth</label>
+    <input type="date" name="birth" id="birth">
+    <button id="submit">Submit</button>
+
+    <script>
+        // today date
+        let currentDate = new Date();
+       
+
+
+        let birthInput = document.getElementById("birth");
+        let submitButton = document.getElementById("submit");
+
+       
+
+        submitButton.addEventListener("click", function() {
+            let birthDate = new Date(birthInput.value);
+
+            if (isNaN(birthDate)) {
+                alert("Please enter a valid date of birth.");
+                return;
+            }
+
+
+            if (birthDate > currentDate) {
+                alert("Date of birth cannot be in the future.");
+        
+            } else {
+                alert("Date of birth is valid.");
+                localStorage.setItem("birthday", birthInput.value);
+            }
+        });
+    </script>
+   
+</body>
+</html>
